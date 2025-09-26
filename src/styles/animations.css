@@ -1,0 +1,191 @@
+/* Dancing Cat Animation Styles */
+
+.dancing-cat-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dancing-cat-container {
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+
+  .cat-image {
+    width: 150px !important;
+    height: 150px !important;
+  }
+
+  .dance-button {
+    font-size: 1rem !important;
+    padding: 12px 24px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .dancing-cat-container {
+    gap: 1rem;
+    padding: 0.5rem;
+  }
+
+  .cat-image {
+    width: 120px !important;
+    height: 120px !important;
+  }
+
+  .dance-button {
+    font-size: 0.9rem !important;
+    padding: 10px 20px !important;
+  }
+
+  .cat-wrapper.dancing::before,
+  .cat-wrapper.dancing::after {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .cat-image {
+    width: 250px !important;
+    height: 250px !important;
+  }
+
+  .dance-button {
+    font-size: 1.4rem !important;
+    padding: 18px 36px !important;
+  }
+}
+
+.cat-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.cat-image {
+  width: 200px;
+  height: 200px;
+  user-select: none;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+}
+
+/* Dancing Animation */
+.cat-wrapper.dancing .cat-image {
+  animation: catDance 2s infinite ease-in-out;
+}
+
+@keyframes catDance {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+
+  12.5% {
+    transform: translateY(-20px) rotate(-5deg) scale(1.1);
+  }
+
+  25% {
+    transform: translateY(-10px) rotate(5deg) scale(0.95);
+  }
+
+  37.5% {
+    transform: translateY(-25px) rotate(-8deg) scale(1.15);
+  }
+
+  50% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+
+  62.5% {
+    transform: translateY(-15px) rotate(8deg) scale(1.05);
+  }
+
+  75% {
+    transform: translateY(-5px) rotate(-3deg) scale(0.9);
+  }
+
+  87.5% {
+    transform: translateY(-30px) rotate(3deg) scale(1.2);
+  }
+
+  100% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+}
+
+/* Dance Button Styles */
+.dance-button {
+  background: linear-gradient(45deg, #ff6b9d, #ff8c42);
+  border: none;
+  border-radius: 25px;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.dance-button:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(45deg, #ff8c42, #ff6b9d);
+}
+
+.dance-button:active {
+  transform: translateY(-1px) scale(0.98);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Floating Animation for Button */
+.dance-button {
+  animation: floatButton 3s ease-in-out infinite;
+}
+
+@keyframes floatButton {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Sparkle Effect */
+.cat-wrapper.dancing::before,
+.cat-wrapper.dancing::after {
+  content: '✨';
+  position: absolute;
+  font-size: 2rem;
+  animation: sparkle 1.5s infinite;
+  pointer-events: none;
+}
+
+.cat-wrapper.dancing::before {
+  top: -20px;
+  left: -20px;
+  animation-delay: 0.5s;
+}
+
+.cat-wrapper.dancing::after {
+  top: -20px;
+  right: -20px;
+  animation-delay: 1s;
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0.5) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2) rotate(180deg);
+  }
+}
